@@ -8,3 +8,5 @@
 # 1.stack build  
 # 2.stack exec first-project-exe (何も反応しないが立ち上がっている)
 # 3.curl http://localhost:8081/point http://localhost:8081/isaac etc..
+# curl -X POST http://localhost:8090/doublePoint -H "Content-Type: application/json" -d '{"a": 3, "b": 5}' etc..
+

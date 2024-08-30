@@ -7,66 +7,48 @@ module Lib
     ) where
 
 import Servant
-import Data.Aeson(ToJSON)
-import Data.Time.Calendar
-import GHC.Generics(Generic)
-import Network.Wai(Application)
-import Network.Wai.Handler.Warp(run)
+import Data.Aeson (ToJSON, FromJSON)
+import GHC.Generics (Generic)
+import Network.Wai (Application)
+import Network.Wai.Handler.Warp (run)
+import Control.Monad.IO.Class (liftIO)
+import Utils (doubleValue) -- 別のファイルから関数をインポート
 
-data User = User
-  { name :: String
-  , age :: Int
-  , email :: String
-  , registration_date :: Day
-  } deriving (Eq, Show, Generic)
-
-instance ToJSON User
-
-
+-- Pointデータ型の定義
 data Point = Point
   { x :: Int
   , y :: Int
   } deriving (Eq, Show, Generic)
 
 instance ToJSON Point
+instance FromJSON Point
 
-isaac :: User
-isaac = User "Isaac Newton" 372 "isaac@newton.co.uk" (fromGregorian 1683 3 1)
+-- 2つの整数を受け取るデータ型の定義
+data TwoInts = TwoInts
+  { a :: Int
+  , b :: Int
+  } deriving (Eq, Show, Generic)
 
-isaac2 :: User
-isaac2 = User "Isaac2 Newton" 372 "isaac@newton.co.uk" (fromGregorian 1683 3 1)
+instance FromJSON TwoInts
 
-point :: Point
-point = Point 1 3
+-- APIタイプの定義
+type API = "doublePoint" :> ReqBody '[JSON] TwoInts :> Post '[JSON] Point
 
+-- サーバーの定義
+server :: Server API
+server = doublePointHandler
 
-albert :: User
-albert = User "Albert Einstein" 136 "ae@mc2.org" (fromGregorian 1905 12 1)
+-- リクエストを処理するハンドラー
+doublePointHandler :: TwoInts -> Handler Point
+doublePointHandler (TwoInts a b) = return $ Point (doubleValue a) (doubleValue b)
 
-users2 :: [User]
-users2 = [isaac, albert]
+-- サーバーの設定
+api :: Proxy API
+api = Proxy
 
-type UserAPI2 = "users" :> Get '[JSON] [User]
-           :<|> "albert" :> Get '[JSON] User
-           :<|> "isaac" :> Get '[JSON] User
-           :<|> "isaac2" :> Get '[JSON] User
-           :<|> "point" :> Get '[JSON] Point
+app :: Application
+app = serve api server
 
-server2 :: Server UserAPI2
-server2 = return users2
-     :<|> return albert
-     :<|> return isaac
-     :<|> return isaac2
-     :<|> return point
-
-userAPI :: Proxy UserAPI2
-userAPI = Proxy
-
--- 'serve' comes from servant and hands you a WAI Application,
--- which you can think of as an "abstract" web application,
--- not yet a webserver.
-app2 :: Application
-app2 = serve userAPI server2
-
+-- サーバーの起動
 runServant :: IO ()
-runServant = run 8090 app2
+runServant = run 8090 app
