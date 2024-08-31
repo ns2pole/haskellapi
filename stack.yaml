@@ -20,6 +20,9 @@
 resolver:
   url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/19/12.yaml
 
+# resolver: lts-18.28
+# ghc-options:
+  # "-target=x86_64-unknown-linux-gnu"
 # User packages to be built.
 # Various formats can be used as shown in the example below.
 #
