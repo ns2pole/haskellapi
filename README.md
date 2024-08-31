@@ -18,5 +18,9 @@
 # rm -rf .stack-work/ (コンテナ内)
 # stack --allow-different-user build
 # docker cp d502e9d8db1a:/app/first-project/.stack-work ~/Program/haskell_exercise/first-project 
+# git add,commit,push
+# git pull(vpsサーバ)
+# sudo mv .stack-work/dist/x86_64-linux-tinfo6-libc6-pre232/ghc-9.0.2/build/first-project-exe/first-project-exe /usr/local/bin
+# stack exec first-project-exe
 
 
