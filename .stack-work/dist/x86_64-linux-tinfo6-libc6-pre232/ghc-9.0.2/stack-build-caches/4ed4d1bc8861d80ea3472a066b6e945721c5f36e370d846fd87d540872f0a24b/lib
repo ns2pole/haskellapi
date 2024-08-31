@@ -11,9 +11,9 @@
 /app/first-project/package.yaml:
   hash: bed121cde81ac7d75f4fb7cad85dbf19ae46c3632ea6ef9eda2898528eb7d39b
 /app/first-project/src/Lib.hs:
-  hash: a05da722421940f3d07b3bc50f0904cd3c6bf24b2afd55b673847ffbea518ab9
+  hash: 5f71612acf4cba4764410ac06486b552d6fda9a850cc9e1339bbffe27902c54e
 /app/first-project/src/Utils.hs:
-  hash: 94d68b78e589df9c3d1133d3d9268ea34bde5f3a861267613e58081db7b9ba03
+  hash: ef122ac7276282d88fe111891f096f1ca20e668fe4b2d351e0c0ba4c56644b75
 /root/.stack/programs/x86_64-linux/ghc-tinfo6-libc6-pre232-9.0.2/lib/ghc-9.0.2/include/ghcversion.h:
   hash: b6281754d6dc5c5462a97f01fbffb615a7d9f031384e8e8250fce23e8f43f266
 /usr/include/stdc-predef.h:
