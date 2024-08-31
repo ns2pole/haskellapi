@@ -5,7 +5,7 @@
 /app/first-project/ChangeLog.md:
   hash: 432c557c9e231967185ba45c1be7f1d628913b0c73821927ff233fb7ff9d33bb
 /app/first-project/README.md:
-  hash: 9d092c13953cb797a49a49b543696a8ea270560993b3d2a4bd6ee0141078005d
+  hash: b56faf5081cb0c289b53a5078c062e44c90069b7285f8796ea82de26a5eba5aa
 /app/first-project/first-project.cabal:
   hash: b775c42a66524a2115b65a6e4d76e0fce289e669850a2503cdcea02fafb3b87f
 /app/first-project/package.yaml:
@@ -13,7 +13,7 @@
 /app/first-project/src/Lib.hs:
   hash: 52954d0ce761cf6023b210f659e3b101570940626a166c087e58626923d6d103
 /app/first-project/src/Utils.hs:
-  hash: a043f4315943e8611980672170c418f2905a3d4fdadd6a546396af1a305c7112
+  hash: a385235dd1da90f604656bf385efd6ece83ac79a5bf575568e8aedb8d3f4a90b
 /root/.stack/programs/x86_64-linux/ghc-tinfo6-libc6-pre232-9.0.2/lib/ghc-9.0.2/include/ghcversion.h:
   hash: b6281754d6dc5c5462a97f01fbffb615a7d9f031384e8e8250fce23e8f43f266
 /usr/include/stdc-predef.h:
