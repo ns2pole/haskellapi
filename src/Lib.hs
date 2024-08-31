@@ -11,9 +11,11 @@ import Data.Aeson (ToJSON, FromJSON)
 import GHC.Generics (Generic)
 import Network.Wai (Application)
 import Network.Wai.Handler.Warp (run)
-import Control.Monad.IO.Class (liftIO)
-import Utils (doubleValue) -- 別のファイルから関数をインポート
-import Utils (getGCD) -- 別のファイルから関数をインポート
+import Network.Wai.Middleware.Cors
+import Utils (doubleValue, getGCD) -- 別のファイルから関数をインポート
+
+import Network.HTTP.Types (hContentType)
+import Network.HTTP.Types.Method (methodGet, methodPost, methodPut, methodDelete)
 
 -- Pointデータ型の定義
 data Point = Point
@@ -32,7 +34,7 @@ data TwoInts = TwoInts
 
 instance FromJSON TwoInts
 
--- APIタイプの定義に新しいエンドポイントを追加
+-- APIタイプの定義
 type API = "doublePoint" :> ReqBody '[JSON] TwoInts :> Post '[JSON] Point
        :<|> "getGCD" :> ReqBody '[JSON] TwoInts :> Post '[JSON] Int
 
@@ -44,16 +46,22 @@ doublePointHandler (TwoInts a b) = return $ Point (doubleValue a) (doubleValue b
 getGCDHandler :: TwoInts -> Handler Int
 getGCDHandler (TwoInts int1 int2) = return (getGCD int1 int2)
 
--- サーバーの定義を更新
+-- サーバーの定義
 server :: Server API
 server = doublePointHandler :<|> getGCDHandler
+corsPolicy :: CorsResourcePolicy
+corsPolicy = simpleCorsResourcePolicy
+  { corsRequestHeaders = [hContentType]
+  , corsMethods = [methodGet, methodPost, methodPut, methodDelete]
+  -- , corsOrigins = Just ([pack "*"], True)
+  }
 
 -- サーバーの設定
 api :: Proxy API
 api = Proxy
 
 app :: Application
-app = serve api server
+app = cors (const $ Just corsPolicy) $ serve api server
 
 -- サーバーの起動
 runServant :: IO ()

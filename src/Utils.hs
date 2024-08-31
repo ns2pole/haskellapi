@@ -8,11 +8,11 @@ doubleValue n = 200 * n + 12
 
 
 getGCD :: Int -> Int -> Int
-getGCD a b = a + b
+getGCD a b = a `mod` b
 
 -- コードを書く
 -- localで動く
 -- localでangularから動く
--- centosにhaskellを送る→build→buildしたものをmacに送る→gitにpush→vpsでgitでpull→execute
+-- centosにhaskellを送る→build→buildしたものをmacに送る→gitにpush→vpsでgitでpull→executeファイルを/usr/local/binに移動→execute
 
 
