@@ -1,0 +1,18 @@
+? /app/first-project/.stack-work/dist/x86_64-linux-tinfo6-libc6-pre232/ghc-9.0.2/build/first-project-exe/autogen/Paths_first_project.hs
+: hash: b78a48e1e4d6ca640f6d706a3ff997e06341110bd98375d5211919ab9ec05145
+/app/first-project/.stack-work/dist/x86_64-linux-tinfo6-libc6-pre232/ghc-9.0.2/build/first-project-exe/autogen/cabal_macros.h:
+  hash: cc63100d8cbc145a8643ab28fad8290db6c3e82f5615442b161ecad994c35bec
+/app/first-project/ChangeLog.md:
+  hash: 432c557c9e231967185ba45c1be7f1d628913b0c73821927ff233fb7ff9d33bb
+/app/first-project/README.md:
+  hash: 9d092c13953cb797a49a49b543696a8ea270560993b3d2a4bd6ee0141078005d
+/app/first-project/app/Main.hs:
+  hash: 73a68a29c0e29648970386b0e49818deef6792bc1156d08c0b5ee420e4ed7ff0
+/app/first-project/first-project.cabal:
+  hash: b775c42a66524a2115b65a6e4d76e0fce289e669850a2503cdcea02fafb3b87f
+/app/first-project/package.yaml:
+  hash: 95856822febc34386a56c2596df34079c7e386ed9e64edde86880bc58ce625a6
+/root/.stack/programs/x86_64-linux/ghc-tinfo6-libc6-pre232-9.0.2/lib/ghc-9.0.2/include/ghcversion.h:
+  hash: b6281754d6dc5c5462a97f01fbffb615a7d9f031384e8e8250fce23e8f43f266
+/usr/include/stdc-predef.h:
+  hash: 7afa7fcfd2a1ac2d5fe86672db5828460a736519680da0b9fac4d91e5f227817
